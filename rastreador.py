@@ -1,3 +1,4 @@
+# coding=utf-8
 from partido import Partido
 from gol import Gol
 from tarjeta import Tarjeta
@@ -87,8 +88,15 @@ class Rastreador(object):
                                     nacionalidad = input("\tnacionalidad: ")
                                     pais = input("\tpais de nacimiento: ")
 
-                                    id_jugador = Jugadores.nuevo(equipos[equipo_actual], jugador('strong').text(),
-                                                                 posicion, dorsal, nacionalidad, pais, fecha_nacimiento)
+                                    id_jugador = Jugadores.nuevo({
+                                        'equipo': equipos[equipo_actual],
+                                        'nombre':jugador('strong').text(),
+                                        'posicion': posicion,
+                                        'dorsal': dorsal,
+                                        'nacionalidad': nacionalidad,
+                                        'pais_nacimiento': pais,
+                                        'fecha_nacimiento': fecha_nacimiento
+                                    })
 
                             if evento.has_class('icon-circle'):
                                 """ gol """
