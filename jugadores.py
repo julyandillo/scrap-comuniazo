@@ -1,4 +1,3 @@
-import pymysql as mysql
 from Mysql import Mysql
 
 
@@ -60,7 +59,7 @@ class Jugadores:
         sql = Mysql.conectar()
         sql.execute("SELECT id FROM equipo WHERE nombre='{}'".format(jugador['equipo']))
         id_equipo = sql.fetchone()
-        
+
         sql.execute("""INSERT INTO jugador (nombre, id_equipo, posicion, nacionalidad, pais_nacimiento, 
                       fecha_nacimiento, dorsal, imagen) VALUES ('{}', {}, '{}', '{}', '{}', '{}', {}, '')""".format(
             jugador['nombre'], str(id_equipo['id']), jugador['posicion'], jugador['nacionalidad'],
